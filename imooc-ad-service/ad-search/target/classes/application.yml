@@ -1,0 +1,38 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /ad-search #Controller 的前缀
+
+spring:
+  application:
+    name: eureka-client-ad-search
+  jpa:
+    show-sql: true #是否打印 SQL 语句
+    hibernate:
+      ddl-auto: none #手动创建表，主动控制权会更高
+    properties:
+      hibernate.format_sql: true #是否对 SQL 语句进行格式化
+    open-in-view: false #在懒加载的时候，如果找不到一些 bean 的配置会导致错误，所以设置为 false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/imooc_ad_data?autoReconnect=true
+    username: root
+    password: root
+    tomcat:
+      max-active: 4 #最大连接数
+      min-idle: 2 #最小空闲连接数
+      initial-size: 2 #初始化连接
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+management: #配置监控信息
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露全部监控信息
