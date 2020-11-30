@@ -1,6 +1,8 @@
 # Imooc-Ad
 项目二——Spring Cloud：广告系统
 
+> 项目源码请移步到 master 分支
+
 ### 1.广告系统架构 
 https://blog.csdn.net/paynmind/article/details/109280656
 ### 2.广告系统骨架开发 
